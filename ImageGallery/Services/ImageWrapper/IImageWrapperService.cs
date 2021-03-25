@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace ImageGallery.Services
 {
-    interface IImageService
+    public interface IImageWrapperService
     {
+        Task<List<ImagePage>> GetAllPhotosPages();
 
-        
-
-        Task<List<Image>> GetAllPhotosDetails(List<string> photosIds);
-
+        Task<List<ImageComplete>> GetAllPhotosDetails(List<string> photosIds);
 
     }
 }
