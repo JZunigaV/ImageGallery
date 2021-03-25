@@ -3,6 +3,7 @@
 ## How to run 🚀
 
 Run the following commands:
+- cd ImageGallery
 - dotnet clean
 - dotnet build
 - dotnet run
