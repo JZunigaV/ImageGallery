@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ImageGallery.Models
 {
-    public class Authentication
+    public class AuthenticationResponse
     {
 
         public bool Auth { get; set; }

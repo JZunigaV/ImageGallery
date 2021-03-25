@@ -1,3 +1,4 @@
+using ImageGallery.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,7 +27,17 @@ namespace ImageGallery
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Image Gallery", Version = "v1", Description = "Test Api" });
+            });
+
+            services.AddHttpClient();
             services.AddMemoryCache();
+
+
+            services.AddSingleton<IImageService, ImageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +47,10 @@ namespace ImageGallery
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Image Gallery v1"));
 
             app.UseHttpsRedirection();
 
