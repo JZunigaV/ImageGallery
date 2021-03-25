@@ -14,6 +14,6 @@ After that you should be able to access the the following:
 
 An example of the available endpoints will be shown on swagger.
 
-## How to change Congigurations
+## How to change Configurations
 
 You can change Cache expire time and api key on appsettings file inside the project.
